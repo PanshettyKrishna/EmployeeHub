@@ -94,7 +94,7 @@ confirmDeleteBtn.addEventListener("click", () => {
 // Handle "Cancel" button click
 cancelDeleteBtn.addEventListener("click", () => {
     deleteModal.classList.add("hidden"); // Hide the modal
-    window.location.href="index.html"
+    window.location.href="home.html"
 });
 
 
@@ -189,3 +189,4 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
+
