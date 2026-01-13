@@ -43,7 +43,7 @@ submit.onclick = (e) => {
         localStorage.setItem("salary",data.data.salary)
 
         alert("Login Successfully");
-        window.location.href="index.html";
+        window.location.href="home.html";
       })
       .catch(error => {
         console.log("Error:",error);
@@ -58,3 +58,4 @@ submit.onclick = (e) => {
         }
       });
     };
+
