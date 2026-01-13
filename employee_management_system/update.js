@@ -65,9 +65,10 @@ updatebtn.addEventListener("click",(e)=>{
         localStorage.setItem("salary",salary.value)
         localStorage.setItem("contact",contact.value)
         alert("Updated Successfully")
-        window.location.href="index.html"
+        window.location.href="home.html"
     }
    })
    
+
 
 })
