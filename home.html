@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Universal Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1fc600;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo i {
+            margin-right: 10px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #1fc600;
+        }
+
+        /* Profile Section */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .details-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .details-section h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .details-section p {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+
+        .photo-and-details {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            border-top: 1px solid #dddddd;
+        }
+
+        .photo-section-border {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            padding-right: 60px;
+            border-right: 1px solid #dddddd;
+        }
+
+        .photo-section-border img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px dashed #cccccc;
+            object-fit: cover;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+        }
+
+        .photo-section-border button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .photo-section-border button:hover {
+            background-color: #0056b3;
+        }
+
+        .details-section table {
+            width: 100%;
+            margin-left: 10px;
+            border-spacing: 10px 10px;
+        }
+
+        .details-section td {
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .details-section td:first-child {
+            font-weight: bold;
+            color: #333333;
+            text-align: left;
+            width: 40%;
+        }
+
+        .details-section td:last-child {
+            text-align: left;
+            color: #555555;
+            width: 60%;
+        }
+
+        .action-buttons {
+            text-align: center;
+            margin-top: 10px;
+            padding-bottom: 20px;
+        }
+
+        .action-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        #delete-btn {
+            background-color: #dc3545;
+        }
+
+        .action-buttons button:hover {
+            opacity: 0.9;
+        }
+
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-buttons .ok-btn {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .modal-buttons .ok-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .modal-buttons .cancel-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .modal-buttons .cancel-btn:hover {
+            background-color: #c82333;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i> EMS
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">SignUp</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Employee Profile Section -->
+    <div class="container">
+        <div class="details-section">
+            <h1>Employee Profile</h1>
+            <p>Welcome to your profile dashboard.</p>
+        </div>
+
+        <div class="photo-and-details">
+            <div class="photo-section-border">
+                <img src="" id="imgElement" alt="Profile Picture">
+                <button id="upload-btn">Upload Image</button>
+            </div>
+
+            <div class="details-section">
+                <table>
+                    <tr>
+                        <td>Employee ID:</td>
+                        <td id="eid"></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td id="name"></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td id="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td id="password"></td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td id="address"></td>
+                    </tr>
+                    <tr>
+                        <td>Salary:</td>
+                        <td id="salary"></td>
+                    </tr>
+                    <tr>
+                        <td>Contact:</td>
+                        <td id="contact"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="update-btn">Update Details</button>
+            <button id="delete-btn">Delete Account</button>
+        </div>
+
+        <!-- Delete Account Modal -->
+        <div id="delete-modal" class="modal-background hidden">
+            <div class="modal">
+                <h3>Are you sure you want to delete your account?</h3>
+                <div class="modal-buttons">
+                    <button id="confirm-delete" class="ok-btn">OK</button>
+                    <button id="cancel-delete" class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+
+</html>
