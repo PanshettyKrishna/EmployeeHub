@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Employee Management System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       html, body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1fc600;
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo i {
+            margin-right: 10px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #1fc600;
+        }
+
+        /* About Section */
+        .about-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .about-section h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            margin: 10px auto;
+            max-width: 800px;
+            color: #555;
+        }
+
+        /* Vision & Mission Section */
+        .values-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .values-section .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .values-section .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .values-section .card i {
+            font-size: 40px;
+            color: #1fc600;
+            margin-bottom: 20px;
+        }
+
+        .values-section .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .values-section .card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .contact-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1fc600;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin: 5px auto;
+        }
+
+        .contact-section a {
+            color: #1fc600;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-briefcase"></i> EMS
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="register.html">SignUp</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h1>About Us</h1>
+        <p>
+            Welcome to the Employee Management System! Our platform is designed to streamline employee management tasks, enabling organizations to focus on what matters most – growth and success. 
+        </p>
+        <p>
+            With innovative tools and user-friendly interfaces, EMS simplifies the way you manage employee records, performance, and more.
+        </p>
+    </section>
+
+    <!-- Vision and Mission Section -->
+    <section class="values-section">
+        <div class="card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Our Vision</h3>
+            <p>
+                To be the leading platform for managing employees, empowering businesses to achieve their goals efficiently.
+            </p>
+        </div>
+        <div class="card">
+            <i class="fas fa-bullseye"></i>
+            <h3>Our Mission</h3>
+            <p>
+                To provide an easy-to-use and reliable system for managing employee data and enhancing productivity.
+            </p>
+        </div>
+        <div class="card">
+            <i class="fas fa-users"></i>
+            <h3>Our Team</h3>
+            <p>
+                A dedicated group of professionals passionate about delivering the best solutions for your business.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:support@ems.com">support@ems.com</a></p>
+        <p>Phone: +1 (555) 123-4567</p>
+        <p>Address: 123 Business Ave, Suite 100, New York, NY</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Employee Management System. All rights reserved.
+    </footer>
+</body>
+</html>
